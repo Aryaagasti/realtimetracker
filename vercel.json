@@ -1,6 +1,21 @@
 {
+    "name": "my-vercel-project",
     "version": 2,
-    "name": "native-server",
-    "builds": [{ "src": "app.js", "use": "@vercel/node" }],
-    "routes": [{ "src": "/(.*)", "dest": "/app.js" }]
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/app.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/views/$1"
+      }
+    ],
+    "builds": [
+      {
+        "src": "/public/**",
+        "use": "@vercel/static"
+      }
+    ]
   }
+  
